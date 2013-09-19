@@ -4,7 +4,7 @@
     <groupId>com.events.api</groupId>
     <artifactId>api</artifactId>
     <packaging>jar</packaging>
-    <version>0.1.0.BUILD-SNAPSHOT</version>
+    <version>trunk-SNAPSHOT</version>
     <name>mvc</name>
     <properties>
         <aspectj.version>1.7.2</aspectj.version>
