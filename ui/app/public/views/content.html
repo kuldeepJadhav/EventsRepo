@@ -1,0 +1,324 @@
+
+<div ng-controller='ContentController'>
+	<script>
+		$(document).ready(function() {
+			  $(document).tooltip({ tooltipClass: "tool-tip-font",effect: "blind", duration: 5  });
+			  
+			 // $('.internal-like-icon').tooltip('show');
+			});
+</script>
+	<button id='view-button' type="button" class="btn btn-primary margin10"
+		ng-click='toggleViews()'>Show calendar view</button>
+	<br>
+
+	<div id='calendar'  style='width:600px;height:auto'></div>
+	<div id='template-View'>
+		<div class='event-info-main-controller'
+			ng-repeat='eventSlide in slides'>
+
+			<div class='event-info-secondary-controller'
+				ng-mouseover='mouseOverDiv(eventSlide.eventId)'
+				ng-mouseout="mouseOutDiv(eventSlide.eventId)"
+				ng-click='openEventInfoDialog(eventSlide.eventId)'  title="Click to see event Info in detail...." >
+
+				<div id='imagediv{{eventSlide.eventId}}'>
+					<img src='public/images/EVENTS.png'
+						style="width: 100%; height: 100%" />
+				</div>
+
+				<div id="contentsdiv{{eventSlide.eventId}}" class='paddingTop10'
+					style='visibility: hidden'>
+					<span>Event 1 </span>
+
+					<p style="font-size: 13px; font-weight: bold;">The event is
+						organized by computer department. It requires 3 menbers in a
+						group.The prize money for the event is Rs3000.The event is
+						sponsored by Persistent Systems</p>
+				</div>
+
+			</div>
+
+			<div class='social-logos'>
+				<div  class='internal-like-icon'style="width: 20px; height: 20px; float: left; padding: 5px;cursor: pointer;"  title="Help us to keep a track of events you like" >
+					<img src="public/images/like.png" />
+				</div>
+				<div  class='fb-like-icon'style="">
+				<fb-like-icon/>
+				</div>
+				<div class='twitter-share-icon'>
+				<twitter-share-icon/>
+				</div >
+				<div  class='googlemap-icon' >
+					<img src='public/images/googlemap-icon.png' style="" ng-mouseover="show = true" ng-mouseout="show = false" >
+				</div>
+				<div style='position:absolute;z-index: 10; height:200px;width:200px' ng-show='show'>
+					<img src="http://maps.googleapis.com/maps/api/staticmap?center=-15.800513,-47.91378&zoom=11&size=200x200&sensor=false">
+				</div>
+				<!-- <div style="width: 45px; height: 45px; float: right">
+					<img src="public/images/twitter_logo.png" />
+				</div>
+				<div style="width: 45px; height: 45px; float: right;">
+					<img src="public/images/fb_logo.png"
+						style='position: relative; right: -15px' />
+				</div> -->
+
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- 
+<div style="width: 250px;height: 250px;border: 1px solid burlywood;margin: 10px;background-color: white;float:left" ng-controller='ContentController'>
+	<div style="border: 1px solid #34495e;
+width: 220px;
+height: 180px;
+margin-left: 5px;
+margin-top: 5px;
+background-color: #34495e;
+padding: 10px;
+color: whitesmoke;" ng-mouseover='mouseOverDiv("1")'  ng-mouseout="mouseOutDiv('1')">
+
+<div id ='imagediv1'>
+	<img src='public/images/EVENTS.png' style="width:100%;height:100%">
+</div>
+<div  id="contentsdiv1"  style="padding-top: 10px;"> 
+<span>Event 1 </span>
+
+<p style="
+    font-size: 13px;
+    font-weight: bold;
+">
+The event is organized by computer department.
+It requires 3 menbers in a group.The prize money for
+the event is Rs3000.The event is sponsored by Persistent Systems
+
+</p>
+	</div>
+	</div>
+
+</div>
+
+
+<div style="width: 250px;height: 250px;border: 1px solid burlywood;margin: 10px;background-color: white;float:left" ng-controller='ContentController'>
+	<div style="border: 1px solid #34495e;
+width: 220px;
+height: 180px;
+margin-left: 5px;
+margin-top: 5px;
+background-color: #34495e;
+padding: 10px;
+color: whitesmoke;" ng-mouseover='mouseOverDiv("2")'  ng-mouseout="mouseOutDiv('2')">
+
+<div id ='imagediv2'>
+	<img src='public/images/EVENTS.png' style="width:100%;height:100%">
+</div>
+<div  id="contentsdiv2"  style="padding-top: 10px;"> 
+<span>Event 1 </span>
+
+<p style="
+    font-size: 13px;
+    font-weight: bold;
+">
+The event is organized by computer department.
+It requires 3 menbers in a group.The prize money for
+the event is Rs3000.The event is sponsored by Persistent Systems
+
+</p>
+	</div>
+	</div>
+
+</div>
+
+<div style="width: 250px;height: 250px;border: 1px solid burlywood;margin: 10px;background-color: white;float:left" ng-controller='ContentController'>
+	<div style="border: 1px solid #34495e;
+width: 220px;
+height: 180px;
+margin-left: 5px;
+margin-top: 5px;
+background-color: #34495e;
+padding: 10px;
+color: whitesmoke;" ng-mouseover='mouseOverDiv("2")'  ng-mouseout="mouseOutDiv('2')">
+
+<div id ='imagediv2'>
+	<img src='public/images/EVENTS.png' style="width:100%;height:100%">
+</div>
+<div  id="contentsdiv2"  style="padding-top: 10px;"> 
+<span>Event 1 </span>
+
+<p style="
+    font-size: 13px;
+    font-weight: bold;
+">
+The event is organized by computer department.
+It requires 3 menbers in a group.The prize money for
+the event is Rs3000.The event is sponsored by Persistent Systems
+
+</p>
+	</div>
+	</div>
+
+</div>
+
+
+<div style="width: 250px;height: 250px;border: 1px solid white;margin: 10px;background-color: white;float:left" ng-controller='ContentController'>
+	<div style="border: 1px solid #34495e;
+width: 220px;
+height: 180px;
+margin-left: 5px;
+margin-top: 5px;
+background-color: #34495e;
+padding: 10px;
+color: whitesmoke;" ng-mouseover='mouseOverDiv("2")'  ng-mouseout="mouseOutDiv('2')">
+
+<div id ='imagediv2'>
+	<img src='public/images/EVENTS.png' style="width:100%;height:100%">
+</div>
+<div  id="contentsdiv2"  style="padding-top: 10px;"> 
+<span>Event 1 </span>
+
+<p style="
+    font-size: 13px;
+    font-weight: bold;
+">
+The event is organized by computer department.
+It requires 3 menbers in a group.The prize money for
+the event is Rs3000.The event is sponsored by Persistent Systems
+
+</p>
+	</div>
+	</div>
+
+</div>
+
+<div style="width: 250px;height: 250px;border: 1px solid burlywood;margin: 10px;background-color: white;float:left" ng-controller='ContentController'>
+	<div style="border: 1px solid #34495e;
+width: 220px;
+height: 180px;
+margin-left: 5px;
+margin-top: 5px;
+background-color: #34495e;
+padding: 10px;
+color: whitesmoke;" ng-mouseover='mouseOverDiv("2")'  ng-mouseout="mouseOutDiv('2')">
+
+<div id ='imagediv2'>
+	<img src='public/images/EVENTS.png' style="width:100%;height:100%">
+</div>
+<div  id="contentsdiv2"  style="padding-top: 10px;"> 
+<span>Event 1 </span>
+
+<p style="
+    font-size: 13px;
+    font-weight: bold;
+">
+The event is organized by computer department.
+It requires 3 menbers in a group.The prize money for
+the event is Rs3000.The event is sponsored by Persistent Systems
+
+</p>
+	</div>
+	</div>
+
+</div>
+
+<div style="width: 250px;height: 250px;border: 1px solid burlywood;margin: 10px;background-color: white;float:left" ng-controller='ContentController'>
+	<div style="border: 1px solid #34495e;
+width: 220px;
+height: 180px;
+margin-left: 5px;
+margin-top: 5px;
+background-color: #34495e;
+padding: 10px;
+color: whitesmoke;" ng-mouseover='mouseOverDiv("2")'  ng-mouseout="mouseOutDiv('2')">
+
+<div id ='imagediv2'>
+	<img src='public/images/EVENTS.png' style="width:100%;height:100%">
+</div>
+<div  id="contentsdiv2"  style="padding-top: 10px;"> 
+<span>Event 1 </span>
+
+<p style="
+    font-size: 13px;
+    font-weight: bold;
+">
+The event is organized by computer department.
+It requires 3 menbers in a group.The prize money for
+the event is Rs3000.The event is sponsored by Persistent Systems
+
+</p>
+	</div>
+	</div>
+
+</div>
+
+<div style="width: 250px;height: 250px;border: 1px solid white;margin: 10px;background-color: white;float:left" ng-controller='ContentController'>
+	<div style="border: 1px solid #34495e;
+width: 220px;
+height: 180px;
+margin-left: 5px;
+margin-top: 5px;
+background-color: #34495e;
+padding: 10px;
+color: whitesmoke;" ng-mouseover='mouseOverDiv("2")'  ng-mouseout="mouseOutDiv('2')">
+
+<div id ='imagediv2'>
+	<img src='public/images/EVENTS.png' style="width:100%;height:100%">
+</div>
+<div  id="contentsdiv2"  style="padding-top: 10px;"> 
+<span>Event 1 </span>
+
+<p style="
+    font-size: 13px;
+    font-weight: bold;
+">
+The event is organized by computer department.
+It requires 3 menbers in a group.The prize money for
+the event is Rs3000.The event is sponsored by Persistent Systems
+
+</p>
+	</div>
+	</div>
+
+</div>
+
+
+Click on the event image to follow the event........
+<slider>
+</slider>
+
+<div id="midrow">
+  <div id="container">
+    <div class="box">
+      <h1>ABOUT THE EVENT</h1>
+      <a class="plan" href="#">Business Plan</a>
+      <p><a>
+      	The event is organized yearly by XYZ college.
+      	Its main purpose is to explore the various talents in college
+      	students.To share ideas..........................
+      </a><br />
+        <br />
+        <a href="#" class="button"><span>Learn More</span></a></p>
+    </div>
+    <div class="box">
+      <h1></h1>
+      <a class="whyus" href="#">Contact Us?</a>
+      <p><a>
+      		
+      </a><br />
+        <br />
+        <a href="#" class="button"><span>Learn More</span></a></p>
+    </div>
+    <div class="box last">
+      <h1>CONTACT US?</h1>
+      <a class="support" href="#">Our Support</a>
+      <p><a>
+      	Organizer : XYZ college <br>
+      	Email : xyz@adc.com<br>
+      	Contacts : abc(233123213)
+      </a><br />
+        <br />
+        <a href="#" class="button"><span>Learn More</span></a></p>
+    </div>
+  </div>
+</div>
+
+ -->

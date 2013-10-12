@@ -1,0 +1,5 @@
+ <ul class="nav nav-tabs" style='background-color:#ddedf5' ng-controller="TabsController">
+ 	<li ng-class="tabClass(tab)" ng-repeat="tab in tabs" tab="tab">
+			<a href="{{tab.link}}" ng-click="setSelectedTab(tab)">{{tab.label}}</a>
+	</li>
+ </ul>

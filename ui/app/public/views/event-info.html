@@ -1,0 +1,160 @@
+<div>
+	
+
+<div class="container" style="width:560px">  
+	<div class="row" >
+		<div class="header1 margin10" style="display:inline-block">
+			<span>{{eventData.eventName}}</span>
+		</div>
+		<div class='social-logos' style="display:inline">
+			<div  class='fb-like-icon'style="">
+				<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width=The+pixel+width+of+the+plugin&amp;height=80&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;send=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:The pixel width of the pluginpx; height:80px;" allowTransparency="true"></iframe>
+				</div>
+				<div class='twitter-share-icon'>
+				<twitter-share-icon/>
+				</div>
+		</div>
+	</div>
+	<!-- displays date and time -->
+	<div class="row">
+		<table class="table table-hover">
+			<tr class='active'>
+				<td>
+					Date:
+				</td>
+				<td>
+					{{eventData.eventDetails.time}}
+				</td>
+			</tr>
+			
+			<tr class='active'>
+				<td>
+					College Email Id:
+				</td>
+				<td>
+					{{eventData.eventMailId}}
+				</td>
+			</tr>
+			
+			<tr class='active'>
+				<td>
+					Amount Per Person:
+				</td>
+				<td>
+					{{eventData.eventDetails.amountPerPerson}}
+				</td>
+			</tr>
+			
+			<tr class='active'>
+				<td>
+					Total groups allowed:
+				</td>
+				<td>
+					{{eventData.eventDetails.totalGroupsAllowed}}
+				</td>
+			</tr>
+			
+			<tr class='active'>
+				<td>
+					Min Head Count in a group:
+				</td>
+				<td>
+					{{eventData.eventDetails.minNoOfpeopleInAGroup}}
+				</td>
+			</tr>
+			
+			<tr class='active'>
+				<td>
+					Max Head Count in a group:
+				</td>
+				<td>
+					{{eventData.eventDetails.maxNoOfpeopleInAGroup}}
+				</td>
+			</tr>
+		
+		</table>
+<!-- 		<div class="span3">
+			Date:
+		</div>
+		<div class="span3">
+			{{eventData.eventDetails.time}}
+		</div>
+	</div>
+	displays college emai Id
+	<div class="row">
+		<div class="span3">
+			College Mail ID:
+		</div>
+		<div class="span3">
+			{{eventData.eventMailId}}
+		</div>
+	</div>
+	
+	displays amount per person
+	<div class="row">
+		<div class="span3">
+			Amount Per Person:
+		</div>
+		<div class="span3">
+			{{eventData.eventDetails.amountPerPerson}}
+		</div>
+	</div>
+	
+	displays total groups allowed
+	<div class="row">
+		<div class="span3">
+			Total groups allowed:
+		</div>
+		<div class="span3">
+			{{eventData.eventDetails.totalGroupsAllowed}}
+		</div>
+	</div>
+	
+	displays maxNoOfpeopleInAGroup
+	<div class="row">
+		<div class="span3">
+			Max Head Count in a group:
+		</div>
+		<div class="span3">
+			{{eventData.eventDetails.maxNoOfpeopleInAGroup}}
+		</div>
+	</div>
+	
+	displays minNoOfpeopleInAGroup
+	<div class="row">
+		<div class="span3">
+			Min Head Count in a group:
+		</div>
+		<div class="span3">
+			{{eventData.eventDetails.minNoOfpeopleInAGroup}}
+		</div>
+	</div> 
+	
+	<div ng-repeat="contactInfo in eventData.eventDetails.contactInfo ">
+	<div class="row">
+			<div class="span3"  ng-show="$index == 0" ng-hide="$index > 0">
+				Contacts:
+			</div>
+			<div class="span3"  ng-hide="$index == 0">
+			 &nbsp;
+			</div>
+		
+			<div class="span3">
+				{{contactInfo.name}} | {{contactInfo.phone}} | {{contactInfo.email}}
+			</div>
+	</div> -->
+	</div>
+	
+	
+		
+</div>
+
+		<div class="padding10" style="text-align:right">
+			<button type="button" class="btn btn-primary" ng-click="closeDialog()">Close</button>
+			<button type="button" class="btn btn-primary">Enroll</button>
+		</div>
+		<facebook-comments/>
+		
+		
+
+</div>

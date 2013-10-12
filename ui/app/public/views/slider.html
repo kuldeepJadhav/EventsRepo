@@ -1,0 +1,13 @@
+<div ng-controller="ContentController">
+  <carousel interval="myInterval">
+    <slide ng-repeat="slide in slides" active="slide.active">
+      <img ng-src="{{slide.image}}" style="margin:auto;">
+      <div class="carousel-caption">
+        <h1>{{slide.eventName}}</h1>
+        {{slide.eventTime}}&nbsp;&nbsp;
+        {{slide.eventId}}
+        <a ng-click='openEventInfoDialog(slide.eventId)' href="javascript:void(0)">follow the event</a>
+      </div>
+    </slide>
+  </carousel>
+</div>
