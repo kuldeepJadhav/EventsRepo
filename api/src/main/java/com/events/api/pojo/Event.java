@@ -2,22 +2,65 @@ package com.events.api.pojo;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import org.hibernate.annotations.Entity;
+import org.hibernate.annotations.Table;
+
+
+
+
+
+
+@Entity
+@Table(appliesTo = "event")
 public class Event {
 	
-	private String eventName;
+	
+	@Id
+    @Column(name="e_id")
+    @GeneratedValue
 	private String eventId;
+	
+	@Column(name="e_name")
+	private String eventName;
+	
+	@Column(name="e_email_id")
 	private String eventMailId;
+	
+	@Column(name="e_time")
 	private String eventTime;
+	
+	@Column(name="e_emount_per_person")
 	private int amountPerPerson;
+	
+	@Column(name="e_gorups_enrolled")
 	private int groupsEnrolled;
+	
+	@Column(name="e_max_person_per_group")
 	private int maxNoOfPeopleInAGroup;
+	
+	@Column(name="e_min_person_per_group")
 	private int minNoOfPeopleInAGroup;
-	private String eventTemplateUrl;
-	private String twitterUrl;
-	private String facebookUrl;
+	
+//TODO	/*@Column(name="FIRSTNAME")
+	//private String eventTemplateUrl;
+//TODO@Column(name="FIRSTNAME")
+	//private String twitterUrl;
+//TODO@Column(name="FIRSTNAME")
+	//private String facebookUrl;
+	@Column(name="e_createdOn")
 	private Date createdDate;
+	
+	@Column(name="e_createdBy")
 	private String createdBy;
+	
+	@Column(name="e_modifiedOn")
 	private Date modifiedDate;
+	
+	@Column(name="e_modifiedBy")
 	private String modifiedBy;
 	/**
 	 * @return the eventName
@@ -114,42 +157,6 @@ public class Event {
 	 */
 	public void setMinNoOfPeopleInAGroup(int minNoOfPeopleInAGroup) {
 		this.minNoOfPeopleInAGroup = minNoOfPeopleInAGroup;
-	}
-	/**
-	 * @return the eventTemplateUrl
-	 */
-	public String getEventTemplateUrl() {
-		return eventTemplateUrl;
-	}
-	/**
-	 * @param eventTemplateUrl the eventTemplateUrl to set
-	 */
-	public void setEventTemplateUrl(String eventTemplateUrl) {
-		this.eventTemplateUrl = eventTemplateUrl;
-	}
-	/**
-	 * @return the twitterUrl
-	 */
-	public String getTwitterUrl() {
-		return twitterUrl;
-	}
-	/**
-	 * @param twitterUrl the twitterUrl to set
-	 */
-	public void setTwitterUrl(String twitterUrl) {
-		this.twitterUrl = twitterUrl;
-	}
-	/**
-	 * @return the facebookUrl
-	 */
-	public String getFacebookUrl() {
-		return facebookUrl;
-	}
-	/**
-	 * @param facebookUrl the facebookUrl to set
-	 */
-	public void setFacebookUrl(String facebookUrl) {
-		this.facebookUrl = facebookUrl;
 	}
 	/**
 	 * @return the createdDate

@@ -1,0 +1,58 @@
+{
+	"events": [
+		{
+	"eventId": "event1",
+	"eventName": "Event1",
+	"eventMailId": "event1@college.com",
+	"eventDetails": {
+		"time": "12July 2013 3pm",
+		"amountPerPerson": "100",
+		"totalGroupsAllowed": "50",
+		"groupsEnrolled": "23",
+		"maxNoOfpeopleInAGroup": "3",
+		"minNoOfpeopleInAGroup": "1",
+		"pictureUrl": "public/images/event_template.jpg",
+		"twitterUrl": "url",
+		"facebookUrl": "url",
+		"class": "active",
+		"contactInfo": [
+			{
+				"name": "Kuldeep Jadhav",
+				"phone": "9421010243",
+				"email": "kuldeep.jadhav@live.com"
+			},
+			{
+				"name": "Ashutosh Nirkhe",
+				"phone": "9422501357", 
+				"email": "ashutosh.nirkhe@gamil.com"
+			}
+			]
+		}
+	},
+	{
+	"eventId": "event2",		
+	"eventName": "Event2",
+	"eventMailId": "event2@college.com",
+	"eventDetails": {
+		"time": "11July 2013 3pm",
+		"groupsEnrolled": "5",
+		"noOfpeopleInAGroup": "20",
+		"pictureUrl": "public/images/event_template.jpg",
+		"class": "",
+		"contactInfo": [
+			{
+				"name": "Kuldeep Jadhav",
+				"phone": "9421010243",
+				"email": "kuldeep.jadhav@live.com"
+			},
+			{
+				"name": "Ashutosh Nirkhe",
+				"phone": "9422501357",
+				"email": "ashutosh.nirkhe@gamil.com"
+			}
+			]
+		}
+	}
+	
+	]
+}
