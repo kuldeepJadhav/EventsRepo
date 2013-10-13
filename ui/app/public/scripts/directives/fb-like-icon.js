@@ -6,13 +6,19 @@ angular.module('smmApp').directive('fbLikeIcon' ,function (EventFactory) {
     transclude:true,
     replace:true,
     link: function(scope, iElement, iAttrs) { 
-    	scope.url="https://developers.facebook.com/docs/plugins/";
     	
-    	scope.$watch('url', function(newVal, oldVal) {
+    	
+    	scope.$watch('fbUrl', function(newVal, oldVal) {
     		
-    		if(FB){
-    			FB.XFBML.parse();
+    		var flag = 0;
+    		if(typeof  FB  != "undefined" ){
+    			//FB.XFBML.parse();
+    			flag=1;
+    		}else{
+    			scope.fbUrl="https://developers.facebook.com/docs/plugins/";
     		}
+    		
+    		if(flag==0){
     		//alert("changed");
     		(function(d, s, id) {
     		  var js, fjs = d.getElementsByTagName(s)[0];
@@ -21,6 +27,7 @@ angular.module('smmApp').directive('fbLikeIcon' ,function (EventFactory) {
     		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
     		  fjs.parentNode.insertBefore(js, fjs);
     		}(document, 'script', 'facebook-jssdk'));
+    		}
   		
   		//facebook comments
          // var isFacebook = $.find('.fb-comments');
