@@ -1,0 +1,12 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+
+  <persistence-unit name="eventsPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+  <class>com.events.entities.Post</class>
+  <provider>org.hibernate.ejb.HibernatePersistence</provider>
+  <properties>
+  	<property name="hibernate.dialect"  value="org.hibernate.dialect.H2Dialect"/>
+  	<property name ="hibernate.hbm2ddl.auto" value="create-drop"/>
+  </properties>
+  </persistence-unit>
+
+</persistence>
