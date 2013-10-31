@@ -32,6 +32,7 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.9</version>
+            <scope>runtime</scope>
         </dependency>
 
 
@@ -61,5 +62,5 @@
         		</exclusion>
         	</exclusions>
         </dependency>
-</dependencies>
+  </dependencies>
 </project>
