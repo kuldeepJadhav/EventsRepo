@@ -1,28 +1,72 @@
 
-<div ng-controller='ContentController'>
-	<script>
-		$(document).ready(function() {
-			  $(document).tooltip({ tooltipClass: "tool-tip-font",effect: "blind", duration: 5  });
-			  
-			 // $('.internal-like-icon').tooltip('show');
-			});
-</script>
+<div ng-controller='ContentController'   class='row-fluid'>
+	<div class='span2 margin10'  style='background-color: white'>
+	
+		<div class='header1-div'>
+			<span class='header1'>Recent Events</span>
+		</div>		
+			<div class='padding10'>
+				
+						<div ><a> Drama Competiton.......</a></div>
+						<div ><a> Accolade.....</a></div>
+						<div ><a> Techfest</a></div>
+						<div ><a> Elecution compettion</a></div>
+						
+			</div>
+
+
+		<div class='header1-div'>
+			<span class='header1'>Events On Fire</span>
+		</div>
+		<div class='padding10'>
+
+			<div>
+				<a>Black Box Coding....</a>
+			</div>
+			<div>
+				<a> Gaming Zone.......</a>
+			</div>
+			<div>
+				<a>Cricket Competion.......</a>
+			</div>
+			<div>
+				<a> Soccerrrrrrr..</a>
+			</div>
+			<div>
+				<a> Chesssssss.........</a>
+			</div>
+			<div>
+				<a>Event 1</a>
+			</div>
+		</div>
+
+
+
+	</div>
+	
+	
+	
+	<div class='span10'  style='margin:0px ;margin-top:10px;background-color:white'>
 	<button id='view-button' type="button" class="btn btn-primary margin10"
 		ng-click='toggleViews()'>Show calendar view</button>
 	<br>
-
 	<div id='calendar'  style='width:600px;height:auto'></div>
 	<div id='template-View'>
-		<div class='event-info-main-controller'
-			ng-repeat='eventSlide in slides'>
-
+	<div ng-repeat='eventData in eventsData'>
+	<div>
+		<div> <span class='header1 padding10'>{{eventData.eventType}}</span></div>
+		<div  class="events-container">
+		<ul style="width: 300%">
+		<li class='event-info-main-controller'
+			ng-repeat='eventSlide in eventData.eventData'>
 			<div class='event-info-secondary-controller'
 				ng-mouseover='mouseOverDiv(eventSlide.eventId)'
 				ng-mouseout="mouseOutDiv(eventSlide.eventId)"
 				ng-click='openEventInfoDialog(eventSlide.eventId)'  title="Click to see event Info in detail...." >
 
-				<div id='imagediv{{eventSlide.eventId}}'>
-					<img src='public/images/EVENTS.png'
+				<div id='imagediv{{eventSlide.eventId}}'   style='width:100%;height:100%'>
+			
+					<img ng-src='{{eventSlide.eventDetails.pictureUrl}}'
 						style="width: 100%; height: 100%" />
 				</div>
 
@@ -42,30 +86,17 @@
 				<div  class='internal-like-icon'style="width: 20px; height: 20px; float: left; padding: 5px;cursor: pointer;"  title="Help us to keep a track of events you like" >
 					<img src="public/images/like.png" />
 				</div>
-				<div  class='fb-like-icon'style="">
-				<fb-like-icon/>
-				</div>
-				<div class='twitter-share-icon'>
-				<twitter-share-icon/>
-				</div >
-				<div  class='googlemap-icon' >
-					<img src='public/images/googlemap-icon.png' style="" ng-mouseover="show = true" ng-mouseout="show = false" >
-				</div>
-				<div style='position:absolute;z-index: 10; height:200px;width:200px' ng-show='show'>
-					<img src="http://maps.googleapis.com/maps/api/staticmap?center=-15.800513,-47.91378&zoom=11&size=200x200&sensor=false">
-				</div>
-				<!-- <div style="width: 45px; height: 45px; float: right">
-					<img src="public/images/twitter_logo.png" />
-				</div>
-				<div style="width: 45px; height: 45px; float: right;">
-					<img src="public/images/fb_logo.png"
-						style='position: relative; right: -15px' />
-				</div> -->
-
 			</div>
-		</div>
+		</li>
+		</ul>
 	</div>
+	</div>
+	</div>
+	
+	
 
+	</div>
+</div>
 </div>
 <!-- 
 <div style="width: 250px;height: 250px;border: 1px solid burlywood;margin: 10px;background-color: white;float:left" ng-controller='ContentController'>

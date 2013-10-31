@@ -2,7 +2,7 @@
 
 angular.module('smmApp').controller('ContentController',
 		function($scope,$dialog,EventFactory) {
-	
+	  
 	console.log("In content controller");
 	
 	//$( "#contentsdiv1" ).hide();
@@ -96,16 +96,18 @@ angular.module('smmApp').controller('ContentController',
 	};
 	
 	
-
+/*
 	 function initializeSlideSettings(){
 		 // $scope.myInterval = 0;
 		  var slides = $scope.slides = [];
 		  $scope.eventObjects = [];
+		  $scope.events = [];
 		  $scope.addSlide = function(event) {
-			var eventId = event.eventId;
-		    var imageUrl = event.url;
-		    var eventName = event.eventName;
-		    var eventTime = event.time;
+			var eventType = event.eventType; 
+			var eventId = event.eventData.eventId;
+		    var imageUrl = event.eventData.url;
+		    var eventName = event.eventData.eventName;
+		    var eventTime = event.eventData.time;
 		    slides.push({
 		      image: imageUrl,
 		      eventName: eventName,
@@ -114,8 +116,8 @@ angular.module('smmApp').controller('ContentController',
 		    });
 		  };
 		  var cnt = 1;
-		  for (var i=0; i<eventsInfoArray.length; i++) {
-		    $scope.addSlide(eventsInfoArray[i]);
+		  for (var i=0; i<events.length; i++) {
+		    $scope.addSlide(events[i]);
 		    var eventObj = new Object();
 		    eventObj.id = eventsInfoArray[i].eventId;
 		    eventObj.title = eventsInfoArray[i].eventName;
@@ -128,24 +130,32 @@ angular.module('smmApp').controller('ContentController',
 		  }
 		 
 	  };
+	*/ 
 	 
-	 
-	var eventsInfoArray = [];
+
 //	if(!EventFactory.eventData.hasOwnProperty("events")){
-		
+	var events = [];
 	var promise = EventFactory.getEventData();
 	promise.then(function(eventData) {
-		EventFactory.eventData = eventData;
-		for(var i = 0 ; i<eventData.events.length ; i++){
+		EventFactory.eventData = eventData.events;
+		$scope.eventsData = eventData.events;
+		/*for(var i = 0 ; i<eventData.events.length ; i++){
 			var obj = eventData.events[i];
-			var event = {};
-			event.url = obj.eventDetails.pictureUrl;
-			event.eventName = obj.eventName;
-			event.time = obj.eventDetails.time;
-			event.eventId = obj.eventId;
-			eventsInfoArray.push(event);
-		}
-		initializeSlideSettings();
+			var eventsInfoArray = [];
+			for(var j=0 ; j <obj['eventData'].length ; j++){
+				var event = {};
+				event.url = obj.eventDetails.pictureUrl;
+				event.eventName = obj.eventName;
+				event.time = obj.eventDetails.time;
+				event.eventId = obj.eventId;
+				eventsInfoArray.push(event);
+			}
+			var eventDataObj = {};
+			eventDataObj["eventType"] = obj.eventType;
+			eventDataObj["events"] = eventsInfoArray;
+			events.push[eventDataObj];
+		}*/
+		//initializeSlideSettings();
 		 
 		 
 		
