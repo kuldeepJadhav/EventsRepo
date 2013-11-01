@@ -21,6 +21,7 @@ import com.events.api.service.Constants.OrganizationType;
 import com.events.entities.Event;
 import com.events.entities.Group;
 import com.events.entities.Organization;
+import com.events.repositories.GroupRepository;
 import com.events.repositories.OrganizationRepository;
 
 /**
@@ -29,12 +30,13 @@ import com.events.repositories.OrganizationRepository;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:META-INF/application-context.xml")
-public class OrganizationRepositoryTest {
+public class GroupRepositoryTest {
 	
 	@Autowired
-	OrganizationRepository repo;
+	GroupRepository repo;
 
-
+	@Autowired
+	OrganizationRepository orgRepo;
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -45,7 +47,8 @@ public class OrganizationRepositoryTest {
 	@Test
 	public void testSaveOrganization() {
 		Organization org = new Organization();
-		
+		org.setOrganizationName("testing manay to manuy");
+		Organization organization = orgRepo.save(org);
 		List<Event> list = new ArrayList<Event>();
 		Event e1 =new Event();
 		e1.setAmountPerPerson(100);
@@ -60,30 +63,19 @@ public class OrganizationRepositoryTest {
 		e1.setIsActive(true);
 		e1.setMaxGroupAllowed(3);
 		e1.setMinPeoplePerGroup(1);
-		
-		List<Group> grpList = new ArrayList<Group>();
+		e1.setOrg(organization);
+	//	List<Group> grpList = new ArrayList<Group>();
 		Group g = new Group();
 		g.setGroupName("grp1");
 		
-		grpList.add(g);
-		e1.setGroupList(grpList);
+		//grpList.add(g);
+		//e1.setGroupList(grpList);
 		list.add(e1);
-		e1.setOrg(org);
-		org.setEvents(list);
 		
-		org.setFbUrl("testUrl");
-		org.setMapUrl("mapurl");
-		org.setOrg_googlePlusUrl("googleurl");
-		org.setOrganizationName("testorg");
-		org.setOrganizationType(OrganizationType.COLLEGE);
-		org.setTwitterUrl("twitterurl");
+		g.setEventList(list);
 		
-	//	e1.setOrgId(orgId);
+		repo.save(g);
 		
-		 org = repo.save(org);
-		repo.findOne(org.getOrganizationId());
-		//System.out.println(org.getOrganizationType());
-		assertNotNull(org);
 	}
 
 }

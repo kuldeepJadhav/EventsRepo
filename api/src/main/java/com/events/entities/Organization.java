@@ -16,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.events.api.service.Constants.OrganizationType;
+
 /**
  * @author jadhavk
  *
@@ -24,10 +26,6 @@ import javax.persistence.Table;
 @Table(name="em_organization")
 public class Organization {
 	
-	public static  enum OrganizationType{
-		COLLEGE,
-		COMPANY;
-	};
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="org_id")

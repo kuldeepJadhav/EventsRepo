@@ -4,18 +4,26 @@
 package com.events.entities;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.events.api.service.Constants.EventType;
 
 /**
  * @author jadhavk
@@ -25,13 +33,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name ="em_events")
 public class Event {
-	
-	public static enum EventType{
-		DRAMA,
-		TECHNICAL,
-		CORPORATE
-	}
-	
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	@Column(name="e_id")
@@ -89,6 +90,97 @@ public class Event {
 	@ManyToOne
 	@JoinColumn(name="org_id")
 	Organization org;
+	
+	@Column(name="e_pictureUrl")
+	String pictureUrl;
+	
+	@Column(name="e_twitterUrl")
+	String twitterUrl;
+	
+	@Column(name="e_facebookUrl")
+	String facebookUrl;
+	
+	@Column(name="e_googlePlusUrl")
+	String googlePlusUrl;
+	
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "em_event_group", joinColumns = @JoinColumn(name = "e_id",
+            referencedColumnName = "e_id"), inverseJoinColumns = @JoinColumn(name = "g_id",
+            referencedColumnName = "g_id"))
+	List<Group> groupList = new ArrayList<Group>();
+	
+
+	
+	
+	/**
+	 * @return the groupList
+	 */
+	public List<Group> getGroupList() {
+		return groupList;
+	}
+
+	/**
+	 * @param groupList the groupList to set
+	 */
+	public void setGroupList(List<Group> groupList) {
+		this.groupList = groupList;
+	}
+
+	/**
+	 * @return the pictureUrl
+	 */
+	public String getPictureUrl() {
+		return pictureUrl;
+	}
+
+	/**
+	 * @param pictureUrl the pictureUrl to set
+	 */
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
+	}
+
+	/**
+	 * @return the twitterUrl
+	 */
+	public String getTwitterUrl() {
+		return twitterUrl;
+	}
+
+	/**
+	 * @param twitterUrl the twitterUrl to set
+	 */
+	public void setTwitterUrl(String twitterUrl) {
+		this.twitterUrl = twitterUrl;
+	}
+
+	/**
+	 * @return the facebookUrl
+	 */
+	public String getFacebookUrl() {
+		return facebookUrl;
+	}
+
+	/**
+	 * @param facebookUrl the facebookUrl to set
+	 */
+	public void setFacebookUrl(String facebookUrl) {
+		this.facebookUrl = facebookUrl;
+	}
+
+	/**
+	 * @return the googlePlusUrl
+	 */
+	public String getGooglePlusUrl() {
+		return googlePlusUrl;
+	}
+
+	/**
+	 * @param googlePlusUrl the googlePlusUrl to set
+	 */
+	public void setGooglePlusUrl(String googlePlusUrl) {
+		this.googlePlusUrl = googlePlusUrl;
+	}
 
 	/**
 	 * @return the eventId

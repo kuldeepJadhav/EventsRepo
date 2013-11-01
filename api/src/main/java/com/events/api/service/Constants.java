@@ -10,9 +10,22 @@ package com.events.api.service;
 public class Constants {
 	
 	public enum GroupType{
-		Paticipant,
-		Contact,
-		Admin;
-	}
+		participant,
+		contact,
+		admin;
+	};
+	
+	
+	public static enum EventType{
+		DRAMA,
+		TECHNICAL,
+		CORPORATE
+	};
+	
+	public static  enum OrganizationType{
+		COLLEGE,
+		COMPANY;
+	};
+	
 
 }
