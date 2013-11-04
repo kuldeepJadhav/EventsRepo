@@ -13,7 +13,6 @@ angular.module('smmApp').factory('EventFactory', function($http,$q) {
 			return deferred.promise;
 		},// end getEntities
 		getSelectedEventInfo : function(){
-			
 			for(var i = 0 ;i<this.eventData.events.length ; i++){
 				var event = this.eventData.events[i];
 				if(event.eventId == this.selectedEventId){

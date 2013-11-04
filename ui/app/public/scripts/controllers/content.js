@@ -2,9 +2,7 @@
 
 angular.module('smmApp').controller('ContentController',
 		function($scope,$dialog,EventFactory) {
-	  
 	console.log("In content controller");
-	
 	//$( "#contentsdiv1" ).hide();
 	$scope.calendarView = false;
 	$scope.loadedCalendarData = false;
@@ -20,13 +18,9 @@ angular.module('smmApp').controller('ContentController',
 					$('#calendar').fullCalendar({
 						// put your options and callbacks here
 						events : $scope.eventObjects,
-						
 						  eventClick: function(calEvent, jsEvent, view) {
-
 						        // change the border color just for fun
 							  $scope.openEventInfoDialog(calEvent.id);
-						       
-
 						    }
 					});
 				$scope.loadedCalendarData = true;
@@ -64,13 +58,9 @@ angular.module('smmApp').controller('ContentController',
 	};
 	
 	$scope.mouseOverDiv = function(id){
-		
 		var divId = "contentsdiv"+id;
 		var imageDivId = "imagediv"+id;
-		
-		
 		$( "#"+divId ).show();
-		 
 		 $( "#"+imageDivId ).hide();
 		 $( "#"+divId ).css( "visibility" ,"");
 	};

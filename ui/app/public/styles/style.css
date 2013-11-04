@@ -375,8 +375,8 @@ a.button {
 	height: 180px;
 	margin-left: 5px;
 	margin-top: 5px;
-	background-color: rgb(89, 115, 129);
-	/*#34495e;*/
+	background-color:rgb(75, 94, 92);
+	/*#34495e; rgb(89, 115, 129)*/
 	padding: 10px;
 	color: whitesmoke;
 	cursor: pointer;
