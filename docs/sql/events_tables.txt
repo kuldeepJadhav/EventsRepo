@@ -1,0 +1,91 @@
+
+
+
+
+
+CREATE TABLE em_organization (
+  `org_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `org_name` varchar(100) DEFAULT NULL,
+  `org_type` varchar(100) DEFAULT NULL,
+  `org_mapurl` varchar(200) DEFAULT NULL,
+  `org_fburl` varchar(200) DEFAULT NULL,
+  `org_twitterurl` varchar(200) DEFAULT NULL,
+  `org_googleplusurl` varchar(200) DEFAULT ``,
+  PRIMARY KEY (`org_id`)
+) ;
+
+
+
+
+
+CREATE TABLE em_events (
+  `e_id` int NOT NULL AUTO_INCREMENT,
+  `e_name` varchar(100) DEFAULT NULL,
+  `e_place` varchar(100) DEFAULT NULL,
+  `e_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `e_contact_no` double DEFAULT NULL,
+  `e_email_id` varchar(100) DEFAULT NULL,
+  `e_max_groups_allowed` int(11) DEFAULT NULL,
+  `e_groups_enrolled` int(11) DEFAULT NULL,
+  `e_max_people_per_group` int(11) DEFAULT NULL,
+  `e_min_people_per_group` int(11) DEFAULT NULL,
+  `e_amount_per_person` int(11) DEFAULT NULL, 
+  `e_is_active` bit(1) DEFAULT NULL,
+  `e_createdBy` int(11) DEFAULT NULL,
+  `e_createdOn` timestamp NOT NULL DEFAULT `0000-00-00 00:00:00`,
+  `e_modifiedBy` int(11) DEFAULT NULL,
+  `e_modifiedOn` timestamp NOT NULL DEFAULT `0000-00-00 00:00:00`,
+  `org_id` int(11)  unsigned NOT NULL,
+  `e_type` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (e_id),
+  FOREIGN KEY (org_id) REFERENCES em_organization(org_id)
+) ;
+
+CREATE TABLE em_person (
+  `p_id` int(11) NOT NULL AUTO_INCREMENT,
+  `p_first_name` varchar(50) DEFAULT NULL,
+  `p_last_name` varchar(50) DEFAULT NULL,
+  `p_gender` enum(`male`,`female`) DEFAULT NULL,
+  `p_email_id` varchar(100) DEFAULT NULL,
+  `p_dob` date DEFAULT NULL,
+  `p_mobile_no` double DEFAULT NULL,
+  PRIMARY KEY (`p_id`),
+  UNIQUE KEY `p_email_id` (`p_email_id`)
+) ;
+
+CREATE TABLE em_group (
+  `g_id` int NOT NULL AUTO_INCREMENT,
+  `g_name` varchar(100) DEFAULT NULL,
+  `g_type` enum('participant','contact','admin') DEFAULT NULL,
+  `g_createdOn` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `g_modifiedOn` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `g_createdBy` varchar(100) DEFAULT NULL,
+  `g_modifiedBy` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (g_id)
+  );
+
+
+
+CREATE TABLE em_event_group (
+  `e_id` int(11) NOT NULL,
+  `g_id` int(11) NOT NULL,
+  FOREIGN KEY (e_id) REFERENCES em_events (e_id),
+  FOREIGN KEY (g_id) REFERENCES em_group (g_id)
+
+) ;
+
+
+
+
+
+
+
+CREATE TABLE em_group_person (
+  `g_id` int(11) NOT NULL,
+  `p_id` int(11) NOT NULL,
+ FOREIGN KEY (p_id) REFERENCES em_person (p_id),
+  FOREIGN KEY (g_id) REFERENCES em_group (g_id)
+) ;
+
+
+
