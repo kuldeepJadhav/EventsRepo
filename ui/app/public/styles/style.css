@@ -361,7 +361,6 @@ a.button {
 .event-info-main-controller {
 	width: 250px;
 	height: 250px;
-	border: 1px solid #ddedf5;
 	margin: 10px;
 	background-color: white;
 	float: left;
@@ -371,10 +370,8 @@ a.button {
 
 .event-info-secondary-controller {
 	border: 1px solid #34495e;
-	width: 220px;
+	width: 228px;
 	height: 180px;
-	margin-left: 5px;
-	margin-top: 5px;
 	background-color:rgb(75, 94, 92);
 	/*#34495e; rgb(89, 115, 129)*/
 	padding: 10px;
@@ -448,9 +445,9 @@ a.button {
 
 .header1 {
 	font-family: Oswald, sans-serif;
-	color: rgb(255, 185, 0);
-	font-size: 15px;
-	text-transform: uppercase;
+color: rgb(55, 55, 55);
+font-size: 15px;
+text-transform: uppercase;
 font-style: normal;
 font-weight: normal;
 }
