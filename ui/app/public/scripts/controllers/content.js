@@ -53,6 +53,7 @@ angular.module('smmApp').controller('ContentController',
 		var imageDivId = "imagediv"+id;
 		 $( "#"+divId ).hide();
 		 $( "#"+imageDivId ).show();
+		 //box-shadow: 15px 15px 10px rgb(107, 91, 67);
 	};
 	
 	$scope.mouseOverDiv = function(id){
