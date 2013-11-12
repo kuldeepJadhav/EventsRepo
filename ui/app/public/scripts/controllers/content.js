@@ -1,5 +1,14 @@
+/*
+ * Content controller is responsible for gathering the
+ * events content from factory and storing the 
+ * data in Eventfactory singelton so that the 
+ * data can be used in eventInfo and other sections.
+ * 
+ * 1) Provides functions to toggle between calendar view and 
+ * template view
+ * 2) To open the eventInfo dialog.
+ * */
 'use strict';
-
 angular.module('smmApp').controller('ContentController',
 		function($scope,$dialog,EventFactory) {
 	console.log("In content controller");
@@ -7,6 +16,9 @@ angular.module('smmApp').controller('ContentController',
 	$scope.calendarView = false;
 	$scope.loadedCalendarData = false;
 	
+	/*
+	 * function to toggle between calendar and template view
+	 * */
 	$scope.toggleViews = function(){
 		if(!$scope.calendarView){
 			$scope.calendarView  = true;
@@ -17,7 +29,7 @@ angular.module('smmApp').controller('ContentController',
 				if ($('#calendar'))
 					$('#calendar').fullCalendar({
 						// put your options and callbacks here
-						events : $scope.eventObjects,
+						events : EventFactory.getDataForCalendarView(),
 						  eventClick: function(calEvent, jsEvent, view) {
 						        // change the border color just for fun
 							  $scope.openEventInfoDialog(calEvent.id);
@@ -35,25 +47,11 @@ angular.module('smmApp').controller('ContentController',
 		}
 	};
 	
-	$scope.clicked =function(){
-		alert("clcked...");
-	};
 	
 	$scope.mouseOutDiv = function(id){
-		//alert('here');
 		var divId = "contentsdiv"+id;
 		var imageDivId = "imagediv"+id;
-		
-		 /*$( "#"+divId ).show( "slow", function() {
-			    //alert( "Animation complete." );
-			  });
-		 
-		 $( "#"+imageDivId ).hide( "slow", function() {
-			    //alert( "Animation complete." );
-			  });*/
-		 
 		 $( "#"+divId ).hide();
-		 
 		 $( "#"+imageDivId ).show();
 	};
 	
@@ -65,6 +63,9 @@ angular.module('smmApp').controller('ContentController',
 		 $( "#"+divId ).css( "visibility" ,"");
 	};
 	
+	/**
+	 * Function responsible to show the event info dialog.
+	 */
 	$scope.openEventInfoDialog = function(eventId) {
 		EventFactory.selectedEventId = eventId;
 		$scope.opts = {
@@ -129,27 +130,6 @@ angular.module('smmApp').controller('ContentController',
 	promise.then(function(eventData) {
 		EventFactory.eventData = eventData.events;
 		$scope.eventsData = eventData.events;
-		/*for(var i = 0 ; i<eventData.events.length ; i++){
-			var obj = eventData.events[i];
-			var eventsInfoArray = [];
-			for(var j=0 ; j <obj['eventData'].length ; j++){
-				var event = {};
-				event.url = obj.eventDetails.pictureUrl;
-				event.eventName = obj.eventName;
-				event.time = obj.eventDetails.time;
-				event.eventId = obj.eventId;
-				eventsInfoArray.push(event);
-			}
-			var eventDataObj = {};
-			eventDataObj["eventType"] = obj.eventType;
-			eventDataObj["events"] = eventsInfoArray;
-			events.push[eventDataObj];
-		}*/
-		//initializeSlideSettings();
-		 
-		 
-		
-		
 	}, function(reason) {
 		console.log('Failure: '+reason);
 	});
