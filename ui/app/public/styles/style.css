@@ -458,3 +458,46 @@ font-weight: normal;
 	overflow-x: auto;
 	overflow-y: hidden;
 }
+
+.table-div .label{
+	width: 50px;
+padding: 5px;
+color: #666;
+background: transparent;
+font-weight: normal;
+vertical-align: middle;
+vertical-align: top;
+padding-top: 13px;
+margin-left: 10px;
+font-size: 14px;
+}
+
+.table-div .value{
+	display:inline;
+	width:200px;
+	padding:5px;
+}
+
+.data-div{
+	width: 290px;
+margin: 10px;
+background-color: rgb(219, 219, 212);
+box-shadow: 1px 1px 10px grey;
+}
+
+.data-col-header{
+	width: 80px;
+display: inline;
+padding: 30px;
+}
+
+.data-col-value{
+	width: 80px;
+display: inline;
+padding: 30px;
+}
+
+.data-col-container{
+	background-color: rgb(179, 180, 162);
+	padding: 5px;
+}

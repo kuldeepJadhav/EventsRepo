@@ -15,7 +15,6 @@ angular.module('smmApp').controller('ContentController',
 	//$( "#contentsdiv1" ).hide();
 	$scope.calendarView = false;
 	$scope.loadedCalendarData = false;
-	
 	/*
 	 * function to toggle between calendar and template view
 	 * */
@@ -67,6 +66,9 @@ angular.module('smmApp').controller('ContentController',
 	/**
 	 * Function responsible to show the event info dialog.
 	 */
+	
+	var eventInfoDialog ; 
+	var enrollDialog;
 	$scope.openEventInfoDialog = function(eventId) {
 		EventFactory.selectedEventId = eventId;
 		$scope.opts = {
@@ -74,11 +76,62 @@ angular.module('smmApp').controller('ContentController',
 			keyboard : true,
 			backdropClick : true,
 			templateUrl : 'public/views/event-info.html',
-			controller : 'EventInfoController',
+			controller : function($scope){
+				var eventData = EventFactory.getSelectedEventInfo();
+				$scope.eventData = eventData;
+				
+				 $scope.openEnrollDialog = function(eventId) {
+						//EventFactory.selectedEventId = eventId;
+						$scope.opts = {
+							backdrop : true,
+							keyboard : true,
+							backdropClick : true,
+							templateUrl : 'public/views/enroll.html',
+							controller :function($scope){
+								 $scope.personDetailsObject = [];
+								// $scope.test ="test";
+								 // $scope.personDetailsObject.push({'name':'Kuldeep','phone':'9421010243'});
+								  $scope.name="";
+								  $scope.phone="";
+								  $scope.email="";
+									$scope.closeDialog = function(){
+										enrollDialog.close();
+									  };
+									  
+									  $scope.addDetails=function(){
+										  $scope.personDetailsObject.push({'name':$scope.name,'phone':$scope.phone});
+										  $scope.name="";
+										  $scope.phone="";
+										  $scope.email="";
+									  }
+							}
+						};
+						$scope.openDialog = function() {
+							enrollDialog= $dialog.dialog($scope.opts);
+							enrollDialog.open().then(function(result) {
+								if (result) {
+									console.log('dialog closed with result: ' + result);
+								}
+							});
+						};
+						$scope.openDialog();
+					};
+				$scope.closeDialog = function(){
+					eventInfoDialog.close();
+				  };
+				  $scope.enroll = function() {
+					eventInfoDialog.close();
+					$scope.openEnrollDialog();
+				};
+				
+				
+				
+					  
+			}
 		};
 		$scope.openDialog = function() {
-			var d = $dialog.dialog($scope.opts);
-			d.open().then(function(result) {
+			eventInfoDialog= $dialog.dialog($scope.opts);
+			eventInfoDialog.open().then(function(result) {
 				if (result) {
 					console.log('dialog closed with result: ' + result);
 				}
@@ -86,6 +139,11 @@ angular.module('smmApp').controller('ContentController',
 		};
 		$scope.openDialog();
 	};
+	
+	
+	
+		  
+		 
 	
 	
 /*

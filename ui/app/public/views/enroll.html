@@ -1,0 +1,50 @@
+<div >
+	
+
+<div class="container" style="width:560px">  
+	<!-- <div class="row" >
+		<div class="header1 margin10" style="display:inline-block">
+			<span>{{eventData.eventName}}</span>
+		</div>
+	</div> -->
+	<!-- displays date and time -->
+	
+	<div class="table-div" style="padding-top:10px">
+		<div>
+			<div class="label">Name:</div>
+			<div class="value" ><input type='text'  ng-model="name"></div>
+		</div>
+		<div>
+			<div class="label">Phone:</div>
+			<div class="value"><input type='text'  ng-model="phone"></div>
+		</div>
+		<div>
+			<div class="label">Email</div>
+			<div class="value"  ><input type='text' ng-model="email"></div>
+			<div style="display: inline-block;">
+				<button type="button" class="btn btn-primary" ng-click="addDetails()" style="position: relative;
+top: -5px;">Add +</button>
+			</div>
+		</div>
+
+	</div>
+	
+	<div class="row" >
+		<div class="data-div">
+			<div class="data-col-container"><div  class="data-col-header">Name:</div>
+			<div  class="data-col-header">Phone</div></div>
+			<div ng-repeat="personDetails in personDetailsObject">
+				<div class="data-col-value">{{personDetails.name}}</div>
+				<div  class="data-col-value">{{personDetails.phone}}</div>
+			</div>
+		</div>
+
+	</div>
+	
+</div>
+
+		<div class="padding10" style="text-align:right">
+			<button type="button" class="btn btn-primary" ng-click="closeDialog()">Close</button>
+		</div>
+
+</div>
