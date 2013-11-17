@@ -479,25 +479,53 @@ font-size: 14px;
 }
 
 .data-div{
-	width: 290px;
+	width: 500px;
 margin: 10px;
 background-color: rgb(219, 219, 212);
 box-shadow: 1px 1px 10px grey;
 }
 
 .data-col-header{
-	width: 80px;
-display: inline;
-padding: 30px;
+	display: inline-block;
+width: 120px;
+text-align:justify;
+}
+
+.data-col-label{
+	float: left;
+width: 50%;
+padding-left: 30px;
 }
 
 .data-col-value{
-	width: 80px;
-display: inline;
-padding: 30px;
+	width: 120px;
+display: inline-block;
+text-align: left;
+font-size: 12px;
+
 }
 
 .data-col-container{
 	background-color: rgb(179, 180, 162);
 	padding: 5px;
+}
+
+.dialog-header{
+	border-radius: 5px 5px 0px 0px;
+	padding: 10px;
+font-weight: bolder;
+color: rgb(144, 151, 66);
+font-size: 20px;
+background-color: #666;
+}
+
+.bracket-text{
+	color:red;
+	font-size: 11px;
+	
+	
+}
+
+.data-col1-container{
+	
 }

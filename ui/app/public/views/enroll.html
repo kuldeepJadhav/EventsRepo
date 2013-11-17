@@ -8,7 +8,9 @@
 		</div>
 	</div> -->
 	<!-- displays date and time -->
-	
+	<div class="dialog-header">
+		Enroll
+	</div>
 	<div class="table-div" style="padding-top:10px">
 		<div>
 			<div class="label">Name:</div>
@@ -24,6 +26,7 @@
 			<div style="display: inline-block;">
 				<button type="button" class="btn btn-primary" ng-click="addDetails()" style="position: relative;
 top: -5px;">Add +</button>
+				(<span> {{addedCount}} /  {{maxAllowed}} </span><span class="bracket-text">Members Added</span>)
 			</div>
 		</div>
 
@@ -31,20 +34,33 @@ top: -5px;">Add +</button>
 	
 	<div class="row" >
 		<div class="data-div">
-			<div class="data-col-container"><div  class="data-col-header">Name:</div>
-			<div  class="data-col-header">Phone</div></div>
-			<div ng-repeat="personDetails in personDetailsObject">
-				<div class="data-col-value">{{personDetails.name}}</div>
+			<div class="data-col-container">
+			<div  class="data-col-header" style="float:left">Name</div>
+			<div  class="data-col-header" >Phone</div>
+			<div  class="data-col-header" >Email</div>
+			</div>
+			<div ng-repeat="personDetails in personDetailsObject"  class="data-col1-container">
+				<div class="data-col-value" style="float:left">{{personDetails.name}}</div>
 				<div  class="data-col-value">{{personDetails.phone}}</div>
+				<div  class="data-col-value" style="width:200px">{{personDetails.email}}
+				</div>
+				<div class="data-col-value" style="width:16px">
+					<img  style="width:14px;height:14px;cursor: pointer;" src='/public/images/delete.png'/ ng-click="deleteDetails($index)">
+				</div>
+				
 			</div>
 		</div>
 
+	</div>
+	<div class="row margin10 bracket-text"  style="margin:10px!important">
+		Total Amount to Pay : {{totalAmount}}
 	</div>
 	
 </div>
 
 		<div class="padding10" style="text-align:right">
 			<button type="button" class="btn btn-primary" ng-click="closeDialog()">Close</button>
+			<button type="button" class="btn btn-success" ng-click="closeDialog()">Pay :)</button>
 		</div>
 
 </div>

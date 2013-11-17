@@ -94,16 +94,29 @@ angular.module('smmApp').controller('ContentController',
 								  $scope.name="";
 								  $scope.phone="";
 								  $scope.email="";
+								  var selectedEvent = EventFactory.getSelectedEventInfo();
+								  $scope.maxAllowed = selectedEvent.eventDetails.maxNoOfpeopleInAGroup;
+								  var amount = parseInt(selectedEvent.eventDetails.amountPerPerson);
+								  $scope.totalAmount = 0;
+								  $scope.addedCount =0;
 									$scope.closeDialog = function(){
 										enrollDialog.close();
 									  };
 									  
 									  $scope.addDetails=function(){
-										  $scope.personDetailsObject.push({'name':$scope.name,'phone':$scope.phone});
+										  $scope.personDetailsObject.push({'name':$scope.name,'phone':$scope.phone,'email':$scope.email});
 										  $scope.name="";
 										  $scope.phone="";
 										  $scope.email="";
-									  }
+										  $scope.addedCount  =  $scope.addedCount +1;
+										  $scope.totalAmount =  $scope.totalAmount + amount;
+									  };
+									  
+									  $scope.deleteDetails=function(index){
+										  $scope.personDetailsObject.splice(index,1);
+										  $scope.addedCount  =  $scope.addedCount  -1;
+										  $scope.totalAmount =  $scope.totalAmount - amount;
+									  };
 							}
 						};
 						$scope.openDialog = function() {
