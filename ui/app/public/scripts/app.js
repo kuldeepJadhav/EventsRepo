@@ -10,7 +10,7 @@
  * 
  * ['ngCookies','ui.bootstrap.dialog', 'ui.bootstrap.tooltip', 'ui.bootstrap.tpls']
  */
-angular.module('smmApp', ['ngCookies','ui.bootstrap.dialog','ui.bootstrap.accordion','ui.bootstrap.tooltip'])
+angular.module('smmApp', ['ngCookies','ui.bootstrap.dialog','ui.bootstrap.accordion','ui.bootstrap.tooltip','ui.bootstrap.popover','$strap'])
 .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {templateUrl: 'public/views/content.html', controller: 'ContentController'}) 

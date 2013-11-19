@@ -2,9 +2,11 @@
 	
 
 <div class="container" style="width:560px">  
-	<div class="row" >
-		<div class="header1 margin10" style="display:inline-block">
+	<div class="row dialog-header " >
+		<div class="" style="display:inline-block">
 			<span>{{eventData.eventName}}</span>
+		</div>
+		<div>
 		</div>
 	</div>
 	<!-- displays date and time -->
@@ -141,7 +143,15 @@
 		
 </div>
 
-		<div class="padding10" style="text-align:right">
+		<div class="padding10"  style="text-align:right;">
+		<!-- <input type="text" class="span3" data-placement="bottom" placeholder="Focus to toggle tooltip" data-trigger="focus" data-unique="1" bs-tooltip="tooltip.title"/> -->
+		<button type="button" class=" btn btn-info"  bs-popover="'/public/views/tell-friends.html'"  style="float:left">Tell your friends...</button>
+		<!-- 	 <div class="checkbox" style="float:left;">
+    <label style="color: rgb(78, 145, 5);
+font-size: 13px;">
+      <input type="checkbox"  id ="share-with-friends-{{eventId}}" > Tell your friends about this event.
+    </label>
+  </div> -->
 			<button type="button" class="btn btn-primary" ng-click="closeDialog()">Close</button>
 			<button type="button" class="btn btn-primary" ng-click="enroll()">Enroll</button>
 		</div>

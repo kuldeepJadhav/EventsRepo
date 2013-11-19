@@ -79,7 +79,11 @@ angular.module('smmApp').controller('ContentController',
 			controller : function($scope){
 				var eventData = EventFactory.getSelectedEventInfo();
 				$scope.eventData = eventData;
-				
+				$scope.eventId = $scope.eventData.eventId;
+				$scope.tooltip =  {
+					  "title": "Hello Popover<br />This is a multiline message!",
+					  "saved": false
+					}
 				 $scope.openEnrollDialog = function(eventId) {
 						//EventFactory.selectedEventId = eventId;
 						$scope.opts = {
@@ -95,6 +99,8 @@ angular.module('smmApp').controller('ContentController',
 								  $scope.phone="";
 								  $scope.email="";
 								  var selectedEvent = EventFactory.getSelectedEventInfo();
+								  $scope.eventName = selectedEvent.eventName;
+								  $scope.eventDate = selectedEvent.eventDetails.time;
 								  $scope.maxAllowed = selectedEvent.eventDetails.maxNoOfpeopleInAGroup;
 								  var amount = parseInt(selectedEvent.eventDetails.amountPerPerson);
 								  $scope.totalAmount = 0;

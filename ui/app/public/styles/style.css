@@ -522,10 +522,22 @@ background-color: #666;
 .bracket-text{
 	color:red;
 	font-size: 11px;
-	
+}
+.event-detail-box{
+width: 200px;
+padding: 5px;
+margin: 10px;
+border: 1px solid grey;
+box-shadow: 1px 1px 10px gray;
+font-size: 12px;
+background-color: rgb(251, 252, 228);
+}
+.social-icons{
+	float:right;
+	widht:400px;
+	padding:10px;
 	
 }
-
 .data-col1-container{
 	
 }
