@@ -80,6 +80,8 @@ angular.module('smmApp').controller('ContentController',
 				var eventData = EventFactory.getSelectedEventInfo();
 				$scope.eventData = eventData;
 				$scope.eventId = $scope.eventData.eventId;
+				//if(typeof stLight != 'undefined')
+				//stLight.options({publisher: "82e78d9f-fba7-4297-89c8-2db6513f3e2f", doNotHash: false, doNotCopy: false, hashAddressBar: false});
 				$scope.tooltip =  {
 					  "title": "Hello Popover<br />This is a multiline message!",
 					  "saved": false
@@ -101,27 +103,36 @@ angular.module('smmApp').controller('ContentController',
 								  var selectedEvent = EventFactory.getSelectedEventInfo();
 								  $scope.eventName = selectedEvent.eventName;
 								  $scope.eventDate = selectedEvent.eventDetails.time;
-								  $scope.maxAllowed = selectedEvent.eventDetails.maxNoOfpeopleInAGroup;
+								  $scope.maxAllowed = parseInt(selectedEvent.eventDetails.maxNoOfpeopleInAGroup);
 								  var amount = parseInt(selectedEvent.eventDetails.amountPerPerson);
 								  $scope.totalAmount = 0;
 								  $scope.addedCount =0;
+								  $scope.trackCount = 0;
 									$scope.closeDialog = function(){
 										enrollDialog.close();
 									  };
 									  
 									  $scope.addDetails=function(){
-										  $scope.personDetailsObject.push({'name':$scope.name,'phone':$scope.phone,'email':$scope.email});
-										  $scope.name="";
-										  $scope.phone="";
-										  $scope.email="";
-										  $scope.addedCount  =  $scope.addedCount +1;
-										  $scope.totalAmount =  $scope.totalAmount + amount;
+										  
+										  if($scope.addedCount < $scope.maxAllowed ){
+											  $scope.personDetailsObject.push({'name':$scope.name,'phone':$scope.phone,'email':$scope.email});
+											  $scope.name="";
+											  $scope.phone="";
+											  $scope.email="";
+											  $scope.addedCount  =  $scope.addedCount +1;
+											  $scope.totalAmount =  $scope.totalAmount + amount;
+										  }
+										  $scope.trackCount ++;
 									  };
 									  
 									  $scope.deleteDetails=function(index){
 										  $scope.personDetailsObject.splice(index,1);
 										  $scope.addedCount  =  $scope.addedCount  -1;
 										  $scope.totalAmount =  $scope.totalAmount - amount;
+										  if( $scope.trackCount >   $scope.maxAllowed){
+											  $scope.trackCount = $scope.maxAllowed;
+										  }
+										  $scope.trackCount --;
 									  };
 							}
 						};

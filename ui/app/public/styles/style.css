@@ -538,6 +538,9 @@ background-color: rgb(251, 252, 228);
 	padding:10px;
 	
 }
+#tell-friends-div .close{
+	display: none!important;
+}
 .data-col1-container{
 	
 }

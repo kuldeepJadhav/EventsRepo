@@ -31,11 +31,15 @@
 			<div class="value"  ><input type='text' ng-model="email"></div>
 			<div style="display: inline-block;">
 				<button type="button" class="btn btn-primary" ng-click="addDetails()" style="position: relative;
-top: -5px;">Add +</button>
+top: -5px;" ng-hide='trackCount > maxAllowed '>Add +</button>
 				(<span> {{addedCount}} /  {{maxAllowed}} </span><span class="bracket-text">Members Added</span>)
 			</div>
 		</div>
 
+	</div>
+	
+	<div class="row" ng-show='trackCount > maxAllowed '>
+		<div class="alert  alert-error"  bs-alert>Cannot add more than {{maxAllowed }}  member(s)  in a group for this event  <strong><span style='color:red'>:(</span></strong></div>
 	</div>
 	
 	<div class="row" >
@@ -45,7 +49,7 @@ top: -5px;">Add +</button>
 			<div  class="data-col-header" >Phone</div>
 			<div  class="data-col-header" >Email</div>
 			</div>
-			<div ng-repeat="personDetails in personDetailsObject"  class="data-col1-container">
+			<div ng-repeat="personDetails in personDetailsObject"  class="data-col1-container" style="padding:5px">
 				<div class="data-col-value" style="float:left">{{personDetails.name}}</div>
 				<div  class="data-col-value">{{personDetails.phone}}</div>
 				<div  class="data-col-value" style="width:200px">{{personDetails.email}}
