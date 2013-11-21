@@ -360,7 +360,7 @@ a.button {
 
 .event-info-main-controller {
 	width: 250px;
-	height: 250px;
+	height: 200px;
 	margin: 10px;
 	background-color: white;
 	float: left;
@@ -540,6 +540,85 @@ background-color: rgb(251, 252, 228);
 }
 #tell-friends-div .close{
 	display: none!important;
+}
+
+.social-icon{
+float: right;
+padding: 5px;
+width:25px ;
+height:32px;
+}
+
+.content-social-logos{
+	position: relative;
+background-color: rgba(22, 22, 22, 0.52);
+width: 200px;
+float: right;
+height: 33px;
+top:-33px;
+display: none;
+}
+
+/**
+COMMNETS SECTION
+**/
+.main-comments-section{
+	
+		overflow: auto;
+    height: 170px;
+    padding: 5px;
+    border: 1px solid rgb(235, 232, 232);
+    width: 280px;
+    float: right;
+    margin: 10px;
+    margin-top: 0px;
+    line-height: normal;
+margin: 0px;
+}
+
+.main-comments-section input{
+	font-size: 11px;
+} 
+.main-comments-section .leave-comment-section{
+	margin: 5px;margin-left: 0px;height: 50px;
+}
+.leave-comment-section input{
+	height:40px;
+}
+
+.individual-comment-section{
+	width: 270px;
+    border: 1px solid rgb(214, 213, 213);
+    margin-bottom: 3px;
+    background-color: rgb(238, 235, 235);
+}
+
+.individual-comment-section .author-name{
+    font-size: 11px;
+    margin: 3px;
+    margin-top: 10px;
+}
+
+.individual-comment-section .comment{
+	font-size: 11px;
+    margin: 5px;
+    display: inline;
+    word-break: break-all;
+}
+.individual-comment-section .cross-button{
+    color: black;
+    float: right;
+    padding: 5px;
+}
+
+#comment-div{
+	width: 330px;
+height: 330px;
+position: absolute;
+right: -330px;
+border: 1px solid grey;
+display:none;
+background-color:  rgba(242, 242, 242, 0.75);
 }
 .data-col1-container{
 	

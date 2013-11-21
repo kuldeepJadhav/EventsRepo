@@ -52,6 +52,8 @@ angular.module('smmApp').controller('ContentController',
 		var imageDivId = "imagediv"+id;
 		 $( "#"+divId ).hide();
 		 $( "#"+imageDivId ).show();
+		 $("#"+'content-social-logos-'+id).hide();
+		 
 		 //box-shadow: 15px 15px 10px rgb(107, 91, 67);
 	};
 	
@@ -61,6 +63,7 @@ angular.module('smmApp').controller('ContentController',
 		$( "#"+divId ).show();
 		 $( "#"+imageDivId ).hide();
 		 $( "#"+divId ).css( "visibility" ,"");
+		 $("#"+'content-social-logos-'+id).show();
 	};
 	
 	/**
@@ -82,6 +85,11 @@ angular.module('smmApp').controller('ContentController',
 				$scope.eventId = $scope.eventData.eventId;
 				//if(typeof stLight != 'undefined')
 				//stLight.options({publisher: "82e78d9f-fba7-4297-89c8-2db6513f3e2f", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+				$scope.showCommentsSection = function(){
+					$( "#comment-div" ).show( 'scale', { to: { width: 280, height: 185 } }, 500);
+				};
+				
+				
 				$scope.tooltip =  {
 					  "title": "Hello Popover<br />This is a multiline message!",
 					  "saved": false

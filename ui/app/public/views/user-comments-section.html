@@ -1,0 +1,37 @@
+
+<div>
+	<table class="table table-hover">
+		<tr class='active'>
+			<td>Name:</td>
+			<td>
+				<div class="value">
+					<input type='text' ng-model="name">
+				</div>
+			</td>
+		</tr>
+
+		<tr class='active'>
+			<td>Email Id:</td>
+			<td>
+				<div class="value">
+					<input type='text' ng-model="email">
+				</div>
+			</td>
+		</tr>
+	</table>
+
+
+
+	<div class='main-comments-section'>
+
+		<form ng-submit="addComment()"  style='margin:0px'>
+			<input type="text"   style='height:40px' ng-model='newComment' placeholder="please leave a comment here..... :)">
+		</form>
+		<div class='individual-comment-section'  ng-repeat='comment in comments'>
+			<span class="cross-button">x</span>
+
+			<p class='author-name'>{{comment.name}} says :</p>
+			<p class='comment'>{{comment.text}}</p>
+		</div>
+	</div>
+</div>

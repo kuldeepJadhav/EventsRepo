@@ -84,11 +84,18 @@
 
 			</div>
 
-			<div class='social-logos'>
-				<div  class='internal-like-icon'style="width: 20px; height: 20px; float: left; padding: 5px;cursor: pointer;"  title="Help us to keep a track of events you like" >
-					<img src="public/images/like.png" />
-				</div>
-				
+			<div class='social-logos content-social-logos'  id='content-social-logos-{{eventSlide.eventId}}' style='' ng-mouseover='mouseOverDiv(eventSlide.eventId)'
+				ng-mouseout="mouseOutDiv(eventSlide.eventId)">
+				<a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=#url"  class='social-icon'>
+					<img src='/public/images/fb-icon.png'/></a>
+				<a class='social-icon' target='_blank' url='http://www.linkedin.com/shareArticle?mini=true&url=http%3A//developer.linkedin.com&title=LinkedIn%20Developer%20Network&summary=My%20favorite%20developer%20program&source=LinkedIn'>
+					<img src='/public/images/linkedin-icon.png'/></a>
+				<a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=#url"  class='social-icon'>
+					<img src='/public/images/twitter-icon.png'/></a>
+				<a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=#url"  class='social-icon'>
+					<img src='/public/images/pininterest-icon.png'/></a>
+				<a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=#url"  class='social-icon'>
+					<img src='/public/images/googleplus-icon.png'/></a>
 			</div>
 		</li>
 		</ul>
