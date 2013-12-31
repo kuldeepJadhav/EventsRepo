@@ -3,6 +3,7 @@
  */
 package com.web.response;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.events.api.service.Constants.EventType;
@@ -13,7 +14,7 @@ import com.events.api.service.Constants.EventType;
  */
 public class EventsJsonResponse {
 	private EventType eventType;
-	private List<EventJson> eventData;
+	private List<EventJson> eventData = new ArrayList<EventJson>();
 	/**
 	 * @return the eventType
 	 */

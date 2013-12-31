@@ -10,11 +10,13 @@
  * 
  * ['ngCookies','ui.bootstrap.dialog', 'ui.bootstrap.tooltip', 'ui.bootstrap.tpls']
  */
-angular.module('smmApp', ['ngCookies','ui.bootstrap.dialog','ui.bootstrap.accordion','ui.bootstrap.tooltip','ui.bootstrap.popover','$strap'])
+angular.module('smmApp', ['calendarApp','ngCookies','ui.bootstrap.dialog','ui.bootstrap.accordion','ui.bootstrap.tooltip','ui.bootstrap.popover','$strap'])
 .config(function ($routeProvider, $locationProvider) {
     $routeProvider
-      .when('/', {templateUrl: 'public/views/content.html', controller: 'ContentController'}) 
+      .when('/', {templateUrl: 'public/views/content.html', controller: 'ContentController'})
+       .when('/list', {templateUrl: 'public/views/org-list.html', controller: ''})
       .when('/about', {templateUrl: 'public/views/about-us.html', controller: 'ContentController'}) 
+      .when('/calenderview',{templateUrl: 'public/views/calendar-view.html',controller: 'ContentController'})
       .otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(false);
   });

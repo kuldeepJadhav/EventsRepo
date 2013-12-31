@@ -1,6 +1,6 @@
  <ul class="nav nav-tabs" style='background: url("/public/images/nav_bk_top.jpg");' ng-controller="TabsController">
  <!-- #ddedf5 -->
- 	<li ng-class="tabClass(tab)" ng-repeat="tab in tabs" tab="tab">
+ 	<li ng-class="tabClass(tab)" ng-repeat="tab in tabs">
 			<a href="{{tab.link}}" ng-click="setSelectedTab(tab)">{{tab.label}}</a>
 	</li>
  </ul>

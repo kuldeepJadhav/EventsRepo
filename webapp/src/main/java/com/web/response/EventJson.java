@@ -11,7 +11,7 @@ public class EventJson {
 	private Integer eventId;
 	private String eventName;
 	private String eventMailId;
-	private EventDetailsJson eventDetails;
+	private EventDetailsJson eventDetails = new EventDetailsJson();
 	/**
 	 * @return the eventId
 	 */

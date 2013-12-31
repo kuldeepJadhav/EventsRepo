@@ -13,19 +13,16 @@
  <!-- 
  <import resource="applicationContext-dataSource.xml"/>
   -->
+  <context:annotation-config />
 	<context:component-scan base-package="com.events.web.controller, com.events.service" />
 
-<mvc:resources mapping="/public/**" location="/public/" />
-<mvc:resources mapping="/components/**" location="/components/" />
-	<mvc:annotation-driven>
-	    <mvc:message-converters register-defaults="true">
-	        <!-- For Jackson 2.x -->
-	        <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-	            <property name="objectMapper" ref="jacksonObjectMapper" />
-	        </bean>
-	    </mvc:message-converters>
-	</mvc:annotation-driven>  
-	<bean id="jacksonObjectMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
+   
+ 
+    <bean id="eventservice" class="com.events.service.EventsServiceImpl">
+    </bean>
+	
+	
+
  <!-- 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -37,6 +34,16 @@
 		</property>
 	</bean>
   -->
+  
+  <mvc:annotation-driven>
+	    <mvc:message-converters register-defaults="true">
+	        <!-- For Jackson 2.x -->
+	        <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	            <property name="objectMapper" ref="jacksonObjectMapper" />
+	        </bean>
+	    </mvc:message-converters>
+	</mvc:annotation-driven>  
+	<bean id="jacksonObjectMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
   
 <bean id="viewResolver"
     	      class="org.springframework.web.servlet.view.InternalResourceViewResolver" >

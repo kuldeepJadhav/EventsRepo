@@ -1,5 +1,6 @@
 package com.web.response;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EventDetailsJson {
@@ -13,7 +14,7 @@ public class EventDetailsJson {
 	private String pictureUrl;
 	private String facebookUrl;
 	private String twitterUrl;
-	private List<ContactInfoJson>contactInfo;
+	private List<ContactInfoJson>contactInfo = new ArrayList<ContactInfoJson>();
 	/**
 	 * @return the time
 	 */

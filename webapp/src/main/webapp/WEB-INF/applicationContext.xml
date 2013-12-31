@@ -16,49 +16,8 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
  
-	<context:annotation-config />
     
-    <bean id="messageSource"
-        class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basename" value="classpath:messages" />
-        <property name="defaultEncoding" value="UTF-8" />
-    </bean>
-    <bean id="propertyConfigurer"
-        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-        p:location="classpath:database.properties" />
- 
-    <bean id="dataSource"
-        class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
-        p:driverClassName="${jdbc.driverClassName}"
-        p:url="${jdbc.databaseurl}" p:username="${jdbc.username}"
-        p:password="${jdbc.password}" />
- 
- 
-    <bean id="sessionFactory"
-        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
-        <property name="configLocation">
-            <value>classpath:hibernate.cfg.xml</value>
-        </property>
-   <property name="configurationClass">
-            <value>org.hibernate.cfg.AnnotationConfiguration</value>
-        </property> 
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.dialect">${jdbc.dialect}</prop>
-                <prop key="hibernate.show_sql">true</prop>
-            </props>
-        </property>
-    </bean>
- 
-    <tx:annotation-driven />
-    <bean id="transactionManager"
-        class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-     
-    <bean id="eventservice" class="com.events.service.EventServiceImpl">
-    </bean>
+
     
     
 </beans>

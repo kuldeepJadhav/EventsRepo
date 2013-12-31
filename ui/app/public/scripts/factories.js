@@ -1,16 +1,14 @@
 'use strict';
-angular.module('smmApp').factory('EventFactory', function($http,$q) {
+var  eventFactory =function($http,$q) {
 	return {
 		eventData : {},
 		selectedEventId: "",
-		getEventData : function() {
+		getEventData : function(callback) {
 			console.log('In getEventData method of EventFactory');
 			var url = 'api/json/events/events-info.json';
-			var deferred = $q.defer();
 			$http.get(url).success(function(data) {
-					deferred.resolve(data);
+				callback(data);
 			});
-			return deferred.promise;
 		},// end getEntities
 		getSelectedEventInfo : function(){
 			for(var i=0; i < this.eventData.length ; i++){
@@ -26,6 +24,7 @@ angular.module('smmApp').factory('EventFactory', function($http,$q) {
 			var eventsData = this.eventData;
 			var eventObjects = [];
 			for(var index = 0; index < eventsData.length ; index++){
+				var cnt=1;
 				for(var i=0; i < eventsData[index].eventData.length ; i++){
 					var eventObj = new Object();
 				    eventObj.id = eventsData[index].eventData[i].eventId;
@@ -33,7 +32,7 @@ angular.module('smmApp').factory('EventFactory', function($http,$q) {
 				    eventObj.start = "Wed, "+cnt+" Oct 2013 13:00:00 EST";
 				    eventObj.end = "Wed, "+cnt+" Oct 2013 13:00:00 EST";
 				   // eventObj["show"+ eventObj.id] = false;
-				    //cnt++;
+				    cnt++;
 				    //$scope["show"+ eventObj.id] = false;
 				    eventObjects.push(eventObj);
 				}
@@ -44,5 +43,7 @@ angular.module('smmApp').factory('EventFactory', function($http,$q) {
 		}
 		
 	};
-});
+};
+angular.module('smmApp').factory('EventFactory',eventFactory );
+angular.module('calendarApp').factory('EventFactory',eventFactory );
 

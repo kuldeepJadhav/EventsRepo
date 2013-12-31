@@ -3,24 +3,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+<groupId>com.events</groupId>
 	<artifactId>api</artifactId>
 	<packaging>jar</packaging>
 	<version>trunk-SNAPSHOT</version>
 
-	<parent>
-		<groupId>com.events</groupId>
-		<artifactId>1</artifactId>
-		<version>trunk-SNAPSHOT</version>
-		<relativePath>../</relativePath>
-	</parent>
+	
 	
 	<properties>
-		<maven.test.failure.ignore>true</maven.test.failure.ignore>
-		<spring.framework.version>3.2.0.RELEASE</spring.framework.version>
-		<hibernate.version>4.1.9.Final</hibernate.version>
-		<sl4j.version>1.7.2</sl4j.version>
-		<junit.version>4.11</junit.version>
-		<hsqldb.version>2.2.9</hsqldb.version>
 		<java.version>1.6</java.version>
 	</properties>
 	

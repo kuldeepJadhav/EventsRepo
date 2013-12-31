@@ -10,7 +10,7 @@
  * */
 'use strict';
 angular.module('smmApp').controller('ContentController',
-		function($scope,$dialog,EventFactory) {
+		function($scope,$dialog,$location,EventFactory) {
 	console.log("In content controller");
 	//$( "#contentsdiv1" ).hide();
 	$scope.calendarView = false;
@@ -19,31 +19,14 @@ angular.module('smmApp').controller('ContentController',
 	 * function to toggle between calendar and template view
 	 * */
 	$scope.toggleViews = function(){
-		if(!$scope.calendarView){
 			$scope.calendarView  = true;
-			$('#view-button').html('Show Template View');
-			$('#calendar').show();
-			$('#template-View').hide();
-			if (!$scope.loadedCalendarData) {
-				if ($('#calendar'))
-					$('#calendar').fullCalendar({
-						// put your options and callbacks here
-						events : EventFactory.getDataForCalendarView(),
-						  eventClick: function(calEvent, jsEvent, view) {
-						        // change the border color just for fun
-							  $scope.openEventInfoDialog(calEvent.id);
-						    }
-					});
+			//$('#view-button').html('Show Template View');
+			//$('#calendar').show();
+			//$('#template-View').hide();
+			var calData = EventFactory.getDataForCalendarView();
+			$location.path('/calenderview');
 				$scope.loadedCalendarData = true;
-			}
-			 //   $('#calendar').hide();
-		}
-		else{
-			$scope.calendarView  = false;
-			$('#view-button').html('Show Calendar View');
-			$('#calendar').hide();
-			$('#template-View').show();
-		}
+		
 	};
 	
 	
@@ -74,7 +57,7 @@ angular.module('smmApp').controller('ContentController',
 	var enrollDialog;
 	$scope.openEventInfoDialog = function(eventId) {
 		EventFactory.selectedEventId = eventId;
-		$scope.opts = {
+		$scope.eventOpts = {
 			backdrop : true,
 			keyboard : true,
 			backdropClick : true,
@@ -168,7 +151,7 @@ angular.module('smmApp').controller('ContentController',
 			}
 		};
 		$scope.openDialog = function() {
-			eventInfoDialog= $dialog.dialog($scope.opts);
+			eventInfoDialog= $dialog.dialog($scope.eventOpts);
 			eventInfoDialog.open().then(function(result) {
 				if (result) {
 					console.log('dialog closed with result: ' + result);
@@ -223,13 +206,11 @@ angular.module('smmApp').controller('ContentController',
 
 //	if(!EventFactory.eventData.hasOwnProperty("events")){
 	var events = [];
-	var promise = EventFactory.getEventData();
-	promise.then(function(eventData) {
+	EventFactory.getEventData(function(eventData){
 		EventFactory.eventData = eventData.events;
 		$scope.eventsData = eventData.events;
-	}, function(reason) {
-		console.log('Failure: '+reason);
 	});
+
 	 
 	//}
 	

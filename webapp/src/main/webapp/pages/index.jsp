@@ -22,11 +22,9 @@
     <link rel="stylesheet" href="public/vendor/bootstrap/styles/bootstrap-combined.no-icons.min.css"/>
     <link rel="stylesheet" href="public/vendor/font-awesome/styles/font-awesome.min.css"/>
     -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
   	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.min.css"/>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"/> 
-   
-   
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"/>
     
     <!-- build:css(app) public/styles/main.css -->
 	
@@ -51,8 +49,6 @@
     <link rel="stylesheet" href="public/styles/create-post.css"/>
     <link rel="stylesheet" href="public/styles/stream.css"/> -->
     <link rel="stylesheet" href="public/styles/style.css"/>
-     <link rel="stylesheet" href="/public/styles/calendar-app.css"/> 
-     <link rel="stylesheet" href="/public/styles/fullcalendar.css"/> 
     
     
     <link rel="stylesheet" href="public/vendor/h5bp/styles/reset-last.css"/>
@@ -62,9 +58,7 @@
     <script src="components/modernizr/modernizr.js"></script>
     
   </head>
-  <body ng-app="smmApp"  style="width:100%;position:absolute;background: url('/public/images/grid.gif');">
-  <!-- : url(public/images/texture_grain.png); -->
-  <div id="fb-root"></div>
+  <body ng-app="smmApp"  style="width:90%;position:absolute;left:75px">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -77,35 +71,13 @@
    
     <div ng-controller="MainController">
       <div ng-include="header.url"></div>
-     <div ng-include="tabs.url" style="box-shadow: 5px 5px 5px 0px grey;"></div>
     </div>  
 
     <!-- Add your site or application content here -->
-    <div class="container-main" ng-view  class='padding10'  style='overflow: auto;
-margin: 10px;'></div>
-
-<div class="social-icons">
-	<!-- AddThis Follow BEGIN -->
-<p>Follow Us</p>
-<div class="addthis_toolbox addthis_32x32_style addthis_default_style">
-<a class="addthis_button_facebook_follow" addthis:userid="kuldeep.v.jadhav"></a>
-<a class="addthis_button_twitter_follow" addthis:userid="YOUR-USERNAME"></a>
-<a class="addthis_button_linkedin_follow" addthis:userid="USERNAME"></a>
-<a class="addthis_button_google_follow" addthis:userid="USERNAME"></a>
-<a class="addthis_button_youtube_follow" addthis:userid="USERNAME"></a>
-<a class="addthis_button_flickr_follow" addthis:userid="USERNAME"></a>
-<a class="addthis_button_pinterest_follow" addthis:userid="USERNAME"></a>
-<a class="addthis_button_instagram_follow" addthis:userid="USERNAME"></a>
-<a class="addthis_button_tumblr_follow" addthis:userid="USERNAME"></a>
-<a class="addthis_button_rss_follow" addthis:userid="USERNAME"></a>
-</div>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-528884fd09696062"></script>
-<!-- AddThis Follow END -->
-	
-</div>
+    <div class="container-main" ng-view></div>
   
   	<!-- cdnify by grunt-google-cdn -->
-    <!-- <script src="components/jquery/jquery.js"></script> -->
+    <script src="components/jquery/jquery.js"></script>
     <script src="components/jquery-ui/ui/jquery-ui.js"></script>
     <script src="components/angular/angular.js"></script>
     <script src="components/angular-resource/angular-resource.js"></script>
@@ -117,44 +89,19 @@ margin: 10px;'></div>
     <script src="components/ui-router/release/angular-ui-router.js"></script>
 
     <!-- build:js public/scripts/scripts.js -->
-       <script src="public/scripts/fullcalendar.js"></script>
-       <script src="public/scripts/calendar.js"></script>
-        <script src="public/scripts/calendar-app.js"></script>
     <script src="public/scripts/app.js"></script>
     <script src="public/scripts/factories.js"></script>
     <script src="public/scripts/services.js"></script>
     <script src="public/scripts/filters.js"></script>
     
     
-     
-    
-    
 	<!-- Controllers -->
-	<script src="public/scripts/controllers/main.js"></script>
-	<script src="public/scripts/controllers/content.js"></script>
-	<script src="public/scripts/controllers/event-info.js"></script>
-	<script src="public/scripts/controllers/tabs.js"></script>
-	<script src="public/scripts/controllers/calendar-content.js"></script>
-
-	<!-- Directives -->
+    <script src="public/scripts/controllers/main.js"></script>
+     <script src="public/scripts/controllers/content.js"></script>
+      <script src="public/scripts/controllers/event-info.js"></script>
+     
+     <!-- Directives -->
       <script src="public/scripts/directives/slider.js"></script> 
-      <script src="public/scripts/directives/facebook-comments.js"></script> 
-      <script src="public/scripts/directives/fb-like-icon.js"></script> 
-      <script src="public/scripts/directives/twitter-share-icon.js"></script> 
-      <script src="public/scripts/directives/user-comments-section.js"></script> 
-        <script src="public/scripts/directives/calendar-tab.js"></script> 
-      	<script src="public/scripts/directives/calendar-content.js"></script>
-      
-
-
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-    <script src="//mgcrea.github.com/angular-strap/js/angular-strap.js"></script>
-    
-
-
-
-<script type="text/javascript"></script>
 
     <!-- endbuild -->
 
